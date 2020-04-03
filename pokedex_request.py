@@ -65,6 +65,51 @@ class PokedexAPI:
                 return responses
 
 
+""" Class Pokemon """
+
+
+class Pokemon:
+
+    def __init__(self):
+        """
+       Initializes attributes of Pokemon class
+       """
+        # self.ab_data = None
+        self.name = None
+        self.id = None
+        self.height = None
+        self.weight = None
+        self.stats = None
+        self.types = None
+        self.abilities = None
+        self.moves = None
+
+    def translate_data(self, api_dict):
+        """ Transfers api data into pokemon
+        object attributes
+        """
+        # self.ab_data = api_dict
+        self.name = self.ab_data['name']
+        self.id = self.ab_data['id']
+        self.height = self.ab_data['height']
+        self.weight = self.ab_data['weight']
+        self.stats = self.ab_data['stats']
+        self.types = self.ab_data['types']
+        self.abilities = self.ab_data['abilities']
+        self.moves = self.ab_data['moves']
+
+        # for item in self.ab_data['pokemon']:
+        #     self.pokemons.append(element['pokemon']['name'])
+
+    def __str__(self):
+        """
+        Prints out pokemon attributes and their values
+        """
+        return f"\nName:{self.name}\nId: {self.id}\nHeight:{self.height} decimeters" \
+            f"\nWeight:{self.weight} hectograms\nStats:{self.stats} \nTypes:{self.types}"\
+            f"\nAbilities:{self.abilities}\n Move: {self.moves}\n"
+
+
 class Move:
 
     def __init__(self, name: str, id: int, generation: str, accuracy: int,
@@ -128,6 +173,7 @@ class Ability:
                f"pokemon: {self.pokemon}\n" \
 
 
+
 class Stats:
     def __init__(self):
         """
@@ -153,6 +199,7 @@ class Stats:
         """
         return f"\nName:{self.name}\nId: {self.id}\nIs Battle Only:" \
             f"{self.isBattleOnly}\n"
+
 
 def main():
     """
