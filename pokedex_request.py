@@ -88,7 +88,7 @@ class Pokemon:
         """ Transfers api data into pokemon
         object attributes
         """
-        # self.ab_data = api_dict
+        self.ab_data = api_dict
         self.name = self.ab_data['name']
         self.id = self.ab_data['id']
         self.height = self.ab_data['height']
