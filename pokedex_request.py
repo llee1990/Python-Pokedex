@@ -66,23 +66,90 @@ class PokedexAPI:
                 return responses
 
 
-class PokedexObject(ABC):
+"""
+Class PokedexObjectCreator
+"""
+class PokedexObjectCreator(ABC):
+    def create_pokedex_object(self):
+        """
 
+        :return:
+        """
+        my_pokedex_object = PokedexObject()
+        return my_pokedex_object
+
+"""
+
+"""
+class PokemonCreator(PokedexObjectCreator):
+    def create_pokemon_object(self):
+        """
+
+        :return:
+        """
+        my_pokemon = PokedexObject()
+        return my_pokemon
+
+"""
+"""
+class MoveCreator(PokedexObjectCreator):
+    def create_pokedex_object(self):
+        my_move = Move()
+        return my_move
+
+"""
+
+"""
+class StatsCreator(PokedexObjectCreator):
+    def create_pokedex_object(self):
+        """
+
+        :return:
+        """
+        my_stats = Stats()
+        return my_stats
+
+"""
+
+"""
+class AbilityCreator():
+    def create_pokedex_object(self):
+        """
+
+        :return:
+        """
+        my_ability = Ability()
+        return my_ability
+
+
+class PokedexObject(ABC):
+    """
+    Base Class of Pokemon classes
+    """
     def __init__(self, name: str, id_: int) -> None:
+        """
+        Initializes attributes of PokedexObject class
+        :param name: as type str
+        :param id_: as type int
+        """
         self.name = name
         self.id = id_
+
 
 """ Class Pokemon """
 
 
 class Pokemon(PokedexObject):
+    """
+    Pokemon child class creates Pokemon object
+    """
 
     def __init__(self, name, id_):
         """
        Initializes attributes of Pokemon class
        """
         super().__init__(name, id_)
-        # self.ab_data = None
+        self.ab_data = None
         # self.name = None
         # self.id = None
         self.height = None
@@ -119,10 +186,25 @@ class Pokemon(PokedexObject):
 
 
 class Move(PokedexObject):
+    """
+
+    """
 
     def __init__(self, name: str, id_: int, generation: str, accuracy: int,
                  pp: int, power: int, move_type: str, dmg_class: str,
                  effect_short: str):
+        """
+
+        :param name:
+        :param id_:
+        :param generation:
+        :param accuracy:
+        :param pp:
+        :param power:
+        :param move_type:
+        :param dmg_class:
+        :param effect_short:
+        """
         super().__init__(name, id_)
         # self.name = name
         # self.id = id
@@ -135,6 +217,10 @@ class Move(PokedexObject):
         self.dmg_class = dmg_class
 
     def __str__(self):
+        """
+        Returns Move object in formatted string
+        :return:
+        """
         return f"Move name: {self.name}\n" \
                f"ID: {self.id}\n" \
                f"Generation: {self.generation}\n" \
@@ -172,8 +258,8 @@ class Ability(PokedexObject):
 
     def __str__(self):
         """
-        Returns string of Ability attributes
-        :return str:
+        Returns string of Ability attributes formatted
+        :return string: of type str
         """
         return f"Ability name: {self.name}\n" \
                f"ID: {self.id}\n" \
@@ -185,6 +271,9 @@ class Ability(PokedexObject):
 
 
 class Stats(PokedexObject):
+    """
+    Stats class
+    """
     def __init__(self, name, id_):
         """
        Initializes attributes of Stats class
