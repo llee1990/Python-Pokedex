@@ -66,6 +66,17 @@ class PokedexAPI:
                 return responses
 
 
+class JSONtoObjectConverter:
+
+    def __init__(self, api: PokedexAPI,
+                 creator) -> None:
+        self.api = api
+        self.creator = creator
+
+        def create_pokedexobject(self):
+            responses = api.process_requests()
+
+
 """
 Class PokedexObjectCreator
 """
@@ -206,14 +217,14 @@ class Pokemon(PokedexObject):
 
 class Move(PokedexObject):
     """
-
+    Move class makes Move objects
     """
 
     def __init__(self, name: str, id_: int, generation: str, accuracy: int,
                  pp: int, power: int, move_type: str, dmg_class: str,
                  effect_short: str):
         """
-
+        Initializes Move object
         :param name:
         :param id_:
         :param generation:
