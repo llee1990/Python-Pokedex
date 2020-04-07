@@ -5,6 +5,7 @@ format for Activity mode and outputs data in a readable form.
 
 import asyncio
 import aiohttp
+from abc import ABC
 
 
 class PokedexAPI:
@@ -65,18 +66,25 @@ class PokedexAPI:
                 return responses
 
 
+class PokedexObject(ABC):
+
+    def __init__(self, name: str, id_: int) -> None:
+        self.name = name
+        self.id = id_
+
 """ Class Pokemon """
 
 
-class Pokemon:
+class Pokemon(PokedexObject):
 
-    def __init__(self):
+    def __init__(self, name, id_):
         """
        Initializes attributes of Pokemon class
        """
+        super().__init__(name, id_)
         # self.ab_data = None
-        self.name = None
-        self.id = None
+        # self.name = None
+        # self.id = None
         self.height = None
         self.weight = None
         self.stats = None
@@ -110,13 +118,14 @@ class Pokemon:
             f"\nAbilities:{self.abilities}\n Move: {self.moves}\n"
 
 
-class Move:
+class Move(PokedexObject):
 
-    def __init__(self, name: str, id: int, generation: str, accuracy: int,
+    def __init__(self, name: str, id_: int, generation: str, accuracy: int,
                  pp: int, power: int, move_type: str, dmg_class: str,
                  effect_short: str):
-        self.name = name
-        self.id = id
+        super().__init__(name, id_)
+        # self.name = name
+        # self.id = id
         self.generation = generation
         self.accuracy = accuracy
         self.effect_short = effect_short
@@ -137,7 +146,7 @@ class Move:
                f"Effect(short): {self.effect_short}\n"
 
 
-class Ability:
+class Ability(PokedexObject):
     """
     Ability class for creating Ability objects from pokemon API
     """
@@ -153,8 +162,9 @@ class Ability:
         :param effect_short:as str
         :param pokemon: as a list of str
         """
-        self.name = name
-        self.id = id_
+        super().__init__(name, id_)
+        # self.name = name
+        # self.id = id_
         self.generation = generation
         self.effect = effect
         self.effect_short = effect_short
@@ -174,14 +184,15 @@ class Ability:
 
 
 
-class Stats:
-    def __init__(self):
+class Stats(PokedexObject):
+    def __init__(self, name, id_):
         """
        Initializes attributes of Stats class
        """
+        super().__init__(name, id_)
         self.ab_data = None
-        self.name = None
-        self.id = None
+        # self.name = None
+        # self.id = None
         self.isBattleOnly = None
 
     def translate_data(self, api_dict):
