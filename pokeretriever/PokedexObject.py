@@ -15,7 +15,7 @@ class PokedexObject(ABC):
         :param id_: as type int
         """
         self.name = name
-        self.id = id_
+        self.id_ = id_
 
 
 """ Class Pokemon """
@@ -26,45 +26,44 @@ class Pokemon(PokedexObject):
     Pokemon child class creates Pokemon object
     """
 
-    def __init__(self, name, id_):
+    def __init__(self, height: int, weight: int, stats: list,
+                 type_: list, abilities: list, moves: list, **kwargs):
         """
        Initializes attributes of Pokemon class
        """
-        super().__init__(name, id_)
-        self.ab_data = None
-        # self.name = None
-        # self.id = None
-        self.height = None
-        self.weight = None
-        self.stats = None
-        self.types = None
-        self.abilities = None
-        self.moves = None
-
-    def translate_data(self, api_dict):
-        """ Transfers api data into pokemon
-        object attributes
-        """
-        self.ab_data = api_dict
-        self.name = self.ab_data['name']
-        self.id = self.ab_data['id']
-        self.height = self.ab_data['height']
-        self.weight = self.ab_data['weight']
-        self.stats = self.ab_data['stats']
-        self.types = self.ab_data['types']
-        self.abilities = self.ab_data['abilities']
-        self.moves = self.ab_data['moves']
-
-        # for item in self.ab_data['pokemon']:
-        #     self.pokemons.append(element['pokemon']['name'])
+        super().__init__(**kwargs)
+        self.height = height
+        self.weight = weight
+        self.stats = stats
+        self.type_ = type_
+        self.abilities = abilities
+        self.moves = moves
+    #
+    # def translate_data(self, api_dict):
+    #     """ Transfers api data into pokemon
+    #     object attributes
+    #     """
+    #     self.ab_data = api_dict
+    #     self.name = self.ab_data['name']
+    #     self.id = self.ab_data['id']
+    #     self.height = self.ab_data['height']
+    #     self.weight = self.ab_data['weight']
+    #     self.stats = self.ab_data['stats']
+    #     self.types = self.ab_data['types']
+    #     self.abilities = self.ab_data['abilities']
+    #     self.moves = self.ab_data['moves']
+    #
+    #     # for item in self.ab_data['pokemon']:
+    #     #     self.pokemons.append(element['pokemon']['name'])
 
     def __str__(self):
         """
         Prints out pokemon attributes and their values
         """
-        return f"\nName:{self.name}\nId: {self.id}\nHeight:{self.height} decimeters" \
-            f"\nWeight:{self.weight} hectograms\nStats:{self.stats} \nTypes:{self.types}"\
-            f"\nAbilities:{self.abilities}\n Move: {self.moves}\n"
+        return f"\nName:{self.name}\nId: {self.id_}\nHeight:{self.height}" \
+            f"\nWeight:{self.weight}\nStats:{self.stats} \n" \
+            f"Types:{self.type_}\nAbilities:{self.abilities}\n" \
+            f"Move: {self.moves}\n"
 
 
 class Move(PokedexObject):
@@ -72,13 +71,12 @@ class Move(PokedexObject):
     Move class makes Move objects
     """
 
-    def __init__(self, name: str, id_: int, generation: str, accuracy: int,
+    def __init__(self, generation: str, accuracy: int,
                  pp: int, power: int, move_type: str, dmg_class: str,
-                 effect_short: str):
+                 effect_short: str, **kwargs):
         """
         Initializes Move object
-        :param name:
-        :param id_:
+
         :param generation:
         :param accuracy:
         :param pp:
@@ -87,9 +85,7 @@ class Move(PokedexObject):
         :param dmg_class:
         :param effect_short:
         """
-        super().__init__(name, id_)
-        # self.name = name
-        # self.id = id
+        super().__init__(**kwargs)
         self.generation = generation
         self.accuracy = accuracy
         self.effect_short = effect_short
@@ -104,7 +100,7 @@ class Move(PokedexObject):
         :return:
         """
         return f"Move name: {self.name}\n" \
-               f"ID: {self.id}\n" \
+               f"ID: {self.id_}\n" \
                f"Generation: {self.generation}\n" \
                f"Accuracy: {self.accuracy}\n" \
                f"PP: {self.pp}\n" \
@@ -119,20 +115,17 @@ class Ability(PokedexObject):
     Ability class for creating Ability objects from pokemon API
     """
 
-    def __init__(self, name: str, id_: int, generation: str,
-                 effect: str, effect_short: str, pokemon: [str]):
+    def __init__(self, generation: str, effect: str, effect_short: str,
+                 pokemon: list, **kwargs):
         """
         Initializes ability object with the following attributes
-        :param name:as a str
-        :param id_:as a int
+
         :param generation: as a str
         :param effect:as a str
         :param effect_short:as str
         :param pokemon: as a list of str
         """
-        super().__init__(name, id_)
-        # self.name = name
-        # self.id = id_
+        super().__init__(**kwargs)
         self.generation = generation
         self.effect = effect
         self.effect_short = effect_short
@@ -144,7 +137,7 @@ class Ability(PokedexObject):
         :return string: of type str
         """
         return f"Ability name: {self.name}\n" \
-               f"ID: {self.id}\n" \
+               f"ID: {self.id_}\n" \
                f"Generation: {self.generation}\n" \
                f"Effect: {self.effect}\n" \
                f"Effect(short): {self.effect_short}\n" \
@@ -156,28 +149,16 @@ class Stats(PokedexObject):
     """
     Stats class
     """
-    def __init__(self, name, id_):
+    def __init__(self, battle_only, **kwargs):
         """
        Initializes attributes of Stats class
        """
-        super().__init__(name, id_)
-        self.ab_data = None
-        # self.name = None
-        # self.id = None
-        self.isBattleOnly = None
-
-    def translate_data(self, api_dict):
-        """
-        Translates api data into stats data
-        """
-        self.ab_data = api_dict
-        self.name = self.ab_data['name']
-        self.id = self.ab_data['id']
-        self.isBattleOnly = self.ab_data['is Battle Only']
+        super().__init__(**kwargs)
+        self.isBattleOnly = battle_only
 
     def __str__(self):
         """
         Prints out stats' attributes and their values
         """
-        return f"\nName:{self.name}\nId: {self.id}\nIs Battle Only:" \
+        return f"\nName:{self.name}\nId: {self.id_}\nIs Battle Only:" \
             f"{self.isBattleOnly}\n"
