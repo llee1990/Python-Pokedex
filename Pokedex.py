@@ -4,8 +4,8 @@ to Pokemon API
 """
 import argparse
 import enum
-import PokedexObjectCreator
-from PokeAPI import PokedexAPI
+from pokeretriever import PokedexObjectCreator
+from pokeretriever.PokeAPI import PokedexAPI
 import asyncio
 
 
@@ -92,7 +92,14 @@ class Pokedex:
         self.pokedex_object_container = []
 
     def populate_pokedex(self):
-        for data in self.request
+        data = self.request.parse_request()
+        creator = self.creator(data)
+        for pokedex_object in creator.create_pokedex_object():
+            self.pokedex_object_container.append(pokedex_object)
+
+    def print_contents(self):
+        for pokedex_object in self.pokedex_object_container:
+            print(pokedex_object)
 
 
 def setup_commandline_request():
@@ -134,8 +141,21 @@ def setup_commandline_request():
 
 def main():
 
-    cmd_args = setup_commandline_request()
-    print(cmd_args)
+    # cmd_args = setup_commandline_request()
+    # print(cmd_args)
+    # new_request = Request(mode=cmd_args.mode,
+    #                       input_file=cmd_args.inputfile,
+    #                       input_data=cmd_args.inputdata,
+    #                       expanded=cmd_args.expanded,
+    #                       output_file=cmd_args.output)
+    new_request = Request(mode="ability",
+                          input_file=None,
+                          input_data=1,
+                          expanded=False,
+                          output_file=None)
+    pokedex = Pokedex(new_request)
+    pokedex.populate_pokedex()
+    pokedex.print_contents()
 
 
 if __name__ == '__main__':

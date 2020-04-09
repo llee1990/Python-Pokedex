@@ -8,7 +8,7 @@ class PokedexObject(ABC):
     """
     Base Class of Pokemon classes
     """
-    def __init__(self, name: str, id: int) -> None:
+    def __init__(self, name: str, id: int, **kwargs) -> None:
         """
         Initializes attributes of PokedexObject class
         :param name: as type str
@@ -57,8 +57,8 @@ class Move(PokedexObject):
                f"Accuracy: {self.accuracy}\n" \
                f"PP: {self.pp}\n" \
                f"Power: {self.power}\n" \
-               f"Type: {self.move_type}\n" \
-               f"Damage class: {self.dmg_class}\n" \
+               f"Type: {self.type}\n" \
+               f"Damage class: {self.damage_class}\n" \
                f"Effect(short): {self.effect_short}\n"
 
 
@@ -67,8 +67,7 @@ class Ability(PokedexObject):
     Ability class for creating Ability objects from pokemon API
     """
 
-    def __init__(self, generation: dict, effect_entries: [dict], effect_short:
-                [dict], pokemon: [dict], **kwargs):
+    def __init__(self, generation: dict, effect_entries: [dict], pokemon: [dict], **kwargs):
         """
         Initializes ability object with the following attributes
 
@@ -80,7 +79,7 @@ class Ability(PokedexObject):
         super().__init__(**kwargs)
         self.generation = generation['name']
         self.effect = effect_entries[0]['effect']
-        self.effect_short = effect_short[0]['short_effect']
+        self.effect_short = effect_entries[0]['short_effect']
         self.pokemon = pokemon
 
     def __str__(self):
@@ -157,5 +156,5 @@ class Pokemon(PokedexObject):
         """
         return f"\nName:{self.name}\nId: {self.id}\nHeight:{self.height}" \
             f"\nWeight:{self.weight}\nStats:{self.stats} \n" \
-            f"Types:{self.type}\nAbilities:{self.abilities}\n" \
+            f"Types:{self.types}\nAbilities:{self.abilities}\n" \
             f"Move: {self.moves}\n"

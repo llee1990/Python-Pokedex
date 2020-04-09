@@ -5,8 +5,6 @@ format for Activity mode and outputs data in a readable form.
 
 import asyncio
 import aiohttp
-from PokedexObjectCreator import PokedexObjectCreator
-from abc import ABC
 
 
 class PokedexAPI:
@@ -67,53 +65,53 @@ class PokedexAPI:
                 return responses
 
 
-def main():
-    """
-    Runs program
-    :return:
-    """
-    requests = [1, 2, 3]
-    # requests = "stench"
-    pokedex = PokedexAPI()
-
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    moves = loop.run_until_complete(pokedex.process_requests(
-        "move", requests))
-    move_list = [Move(move['name'], move['id'],
-                      move['generation']['name'],
-                      move['accuracy'], move['pp'],
-                      move['power'],
-                      move['type']['name'],
-                      move['damage_class']['name'],
-                      move['effect_entries'][0]['short_effect'])
-                 for move in moves]
-    for move in move_list:
-        print(move)
-
-    # loop = asyncio.new_event_loop()
-    # asyncio.set_event_loop(loop)
-    abilities = loop.run_until_complete(
-        pokedex.process_requests("ability", requests))
-    if isinstance(abilities, dict):
-        ability = Ability(abilities['name'], abilities['id'],
-                          abilities['generation']['name'],
-                          abilities['effect_entries'][0]['effect'],
-                          abilities[
-                              'effect_entries'][0]['short_effect'],
-                          abilities['pokemon'])
-        print(ability)
-    else:
-        ability_list = [Ability(ability['name'], ability['id'],
-                                ability['generation']['name'],
-                                ability['effect_entries'][0]['effect'],
-                                ability['effect_entries'][0]
-                                ['short_effect'], ability[
-                              'pokemon'])
-                        for ability in abilities]
-        for ability1 in ability_list:
-            print(ability1)
-
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     """
+#     Runs program
+#     :return:
+#     """
+#     requests = [1, 2, 3]
+#     # requests = "stench"
+#     pokedex = PokedexAPI()
+#
+#     loop = asyncio.new_event_loop()
+#     asyncio.set_event_loop(loop)
+#     moves = loop.run_until_complete(pokedex.process_requests(
+#         "move", requests))
+#     move_list = [Move(move['name'], move['id'],
+#                       move['generation']['name'],
+#                       move['accuracy'], move['pp'],
+#                       move['power'],
+#                       move['type']['name'],
+#                       move['damage_class']['name'],
+#                       move['effect_entries'][0]['short_effect'])
+#                  for move in moves]
+#     for move in move_list:
+#         print(move)
+#
+#     # loop = asyncio.new_event_loop()
+#     # asyncio.set_event_loop(loop)
+#     abilities = loop.run_until_complete(
+#         pokedex.process_requests("ability", requests))
+#     if isinstance(abilities, dict):
+#         ability = Ability(abilities['name'], abilities['id'],
+#                           abilities['generation']['name'],
+#                           abilities['effect_entries'][0]['effect'],
+#                           abilities[
+#                               'effect_entries'][0]['short_effect'],
+#                           abilities['pokemon'])
+#         print(ability)
+#     else:
+#         ability_list = [Ability(ability['name'], ability['id'],
+#                                 ability['generation']['name'],
+#                                 ability['effect_entries'][0]['effect'],
+#                                 ability['effect_entries'][0]
+#                                 ['short_effect'], ability[
+#                               'pokemon'])
+#                         for ability in abilities]
+#         for ability1 in ability_list:
+#             print(ability1)
+#
+#
+# if __name__ == "__main__":
+#     main()
