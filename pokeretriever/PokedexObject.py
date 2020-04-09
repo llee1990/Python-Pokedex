@@ -8,14 +8,14 @@ class PokedexObject(ABC):
     """
     Base Class of Pokemon classes
     """
-    def __init__(self, name: str, id_: int) -> None:
+    def __init__(self, name: str, id: int) -> None:
         """
         Initializes attributes of PokedexObject class
         :param name: as type str
-        :param id_: as type int
+        :param id: as type int
         """
         self.name = name
-        self.id_ = id_
+        self.id = id
 
 
 class Pokemon(PokedexObject):
@@ -24,7 +24,7 @@ class Pokemon(PokedexObject):
     """
 
     def __init__(self, height: int, weight: int, stats: list,
-                 type_: list, abilities: list, moves: list, **kwargs):
+                 types: list, abilities: list, moves: list, **kwargs):
         """
        Initializes attributes of Pokemon class
        """
@@ -32,7 +32,7 @@ class Pokemon(PokedexObject):
         self.height = height
         self.weight = weight
         self.stats = stats
-        self.type_ = type_
+        self.types = types
         self.abilities = abilities
         self.moves = moves
     #
@@ -57,9 +57,9 @@ class Pokemon(PokedexObject):
         """
         Prints out pokemon attributes and their values
         """
-        return f"\nName:{self.name}\nId: {self.id_}\nHeight:{self.height}" \
+        return f"\nName:{self.name}\nId: {self.id}\nHeight:{self.height}" \
             f"\nWeight:{self.weight}\nStats:{self.stats} \n" \
-            f"Types:{self.type_}\nAbilities:{self.abilities}\n" \
+            f"Types:{self.type}\nAbilities:{self.abilities}\n" \
             f"Move: {self.moves}\n"
 
 
@@ -97,7 +97,7 @@ class Move(PokedexObject):
         :return:
         """
         return f"Move name: {self.name}\n" \
-               f"ID: {self.id_}\n" \
+               f"ID: {self.id}\n" \
                f"Generation: {self.generation}\n" \
                f"Accuracy: {self.accuracy}\n" \
                f"PP: {self.pp}\n" \
@@ -134,7 +134,7 @@ class Ability(PokedexObject):
         :return string: of type str
         """
         return f"Ability name: {self.name}\n" \
-               f"ID: {self.id_}\n" \
+               f"ID: {self.id}\n" \
                f"Generation: {self.generation}\n" \
                f"Effect: {self.effect}\n" \
                f"Effect(short): {self.effect_short}\n" \
@@ -157,5 +157,5 @@ class Stats(PokedexObject):
         """
         Prints out stats' attributes and their values
         """
-        return f"\nName:{self.name}\nId: {self.id_}\nIs Battle Only:" \
+        return f"\nName:{self.name}\nId: {self.id}\nIs Battle Only:" \
             f"{self.isBattleOnly}\n"

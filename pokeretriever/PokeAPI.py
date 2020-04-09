@@ -67,21 +67,6 @@ class PokedexAPI:
                 return responses
 
 
-class JSONtoObjectConverter:
-
-    def __init__(self, api: PokedexAPI, creator: PokedexObjectCreator):
-        self.api = api
-        self.creator = creator
-
-    def create_pokedexobject(self):
-        responses = api.process_requests()
-
-
-
-
-
-
-
 def main():
     """
     Runs program

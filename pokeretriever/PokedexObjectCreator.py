@@ -8,6 +8,9 @@ import PokedexObject
 
 class PokedexObjectCreator(ABC):
 
+    def __init__(self, request):
+        self.request = request
+
     @abstractmethod
     def create_pokedex_object(self):
         """
@@ -28,8 +31,7 @@ class PokemonCreator(PokedexObjectCreator):
         Creates Pokemon objects
         :return my_pokemon: as a Pokemon object
         """
-        pokemon = PokedexObject.Pokemon()
-        return pokemon
+        return PokedexObject.Pokemon(**self.request)
 
 
 """
@@ -43,8 +45,7 @@ class MoveCreator(PokedexObjectCreator):
          Creates Move objects
         :return my_move: as a Move object
         """
-        move = PokedexObject.Move()
-        return move
+        return PokedexObject.Move(**self.request)
 
 
 """
@@ -58,8 +59,7 @@ class StatsCreator(PokedexObjectCreator):
         Creates Stats object
         :return mystat: as a Stats object
         """
-        stats = PokedexObject.Stats()
-        return stats
+        return PokedexObject.Stats(**self.request)
 
 
 """
@@ -67,11 +67,10 @@ Factory class for making Ability object
 """
 
 
-class AbilityCreator():
+class AbilityCreator(PokedexObjectCreator):
     def create_pokedex_object(self):
         """
         Creates Ability objects
         :return:
         """
-        ability = PokedexObject.Ability()
-        return ability
+        return PokedexObject.Ability(**self.request)

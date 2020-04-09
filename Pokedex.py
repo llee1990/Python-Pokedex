@@ -1,10 +1,12 @@
-import argparse
-import enum
-
 """
 Parses the command line arguments and formats data from a request
 to Pokemon API
 """
+import argparse
+import enum
+import PokedexObjectCreator
+from PokeAPI import PokedexAPI
+import asyncio
 
 
 class ModeEnum(enum.Enum):
@@ -40,13 +42,29 @@ class Request:
         :param input_file:as a None or str
         :param output_file:as a None or str
         """
+        if input_file is not None and not input_file.endswith(".txt"):
+            raise Exception
         for pokedex_mode in ModeEnum:
             if mode == pokedex_mode.value:
-                self.mode = mode
-        self.input_data = input_data
+                self.mode = pokedex_mode
+        self.input_data = [input_data]
         self.expanded = expanded
         self.input_file = input_file
         self.output_file = output_file
+        if self.input_file is not None:
+            self.__convert_file_to_data()
+
+    def __convert_file_to_data(self):
+        with open(file="text", mode='r', encoding='UTF-8') as file:
+            self.input_file = [line for line in file]
+
+    def parse_request(self) -> dict or [dict]:
+        poke_api = PokedexAPI()
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        query = loop.run_until_complete(poke_api.process_requests(
+            self.mode.value, self.input_data))
+        return query
 
     def __str__(self):
         """
@@ -58,6 +76,18 @@ class Request:
                f"Input file: {self.input_file}\n"\
                f"Expanded: {self.expanded}\n"\
                f"Output file: {self.output_file}\n"
+
+
+class Pokedex:
+
+    def __init__(self, request: Request, api: PokedexAPI, creator:
+                 PokedexObjectCreator):
+        self.request = request
+        self.api = api
+        self.creator = creator
+
+    def create_pokedexobject(self):
+        responses = api.process_requests()
 
 
 def setup_commandline_request():
@@ -80,12 +110,11 @@ def setup_commandline_request():
     file_or_data = parser.add_mutually_exclusive_group(required=True)
     file_or_data.add_argument("--inputfile", type=str,
                               help="If providing a filename, "
-                                   "filename must "
-                                   "end with a .txt extension.")
+                                   "filename must end with a .txt  extension.")
     file_or_data.add_argument("--inputdata", type=str,
                               help="If proving an id, id must be a "
-                                   "digit. If "
-                              "providing a name, name must be a string.")
+                                   "digit. If providing a name, name must "
+                                   "be a string.")
     parser.add_argument("--expanded", action="store_true",
                         help="Will the Pokedex be in expanded mode? "
                              "Only pokemon queries support the expanded "
@@ -102,10 +131,6 @@ def main():
 
     cmd_args = setup_commandline_request()
     print(cmd_args)
-    new_request = Request(cmd_args.mode, cmd_args.expanded,
-                          cmd_args.inputdata, cmd_args.inputfile,
-                          cmd_args.output)
-    print(new_request)
 
 
 if __name__ == '__main__':
