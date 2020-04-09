@@ -56,8 +56,8 @@ class Request:
             self.__convert_file_to_data()
 
     def __convert_file_to_data(self):
-        with open(file="text", mode='r', encoding='UTF-8') as file:
-            self.input_file = [line for line in file]
+        with open(file=self.input_file, mode='r', encoding='UTF-8') as file:
+            self.input_data = [line.rstrip('\n') for line in file]
 
     def parse_request(self) -> dict or [dict]:
         loop = asyncio.new_event_loop()
@@ -148,9 +148,9 @@ def main():
     #                       input_data=cmd_args.inputdata,
     #                       expanded=cmd_args.expanded,
     #                       output_file=cmd_args.output)
-    new_request = Request(mode="ability",
-                          input_file=None,
-                          input_data=1,
+    new_request = Request(mode="move",
+                          input_file="request.txt",
+                          input_data=None,
                           expanded=False,
                           output_file=None)
     pokedex = Pokedex(new_request)
