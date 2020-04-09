@@ -44,6 +44,7 @@ class Request:
         """
         if input_file is not None and not input_file.endswith(".txt"):
             raise Exception
+        self.poke_api = PokedexAPI()
         for pokedex_mode in ModeEnum:
             if mode == pokedex_mode.value:
                 self.mode = pokedex_mode
@@ -59,11 +60,10 @@ class Request:
             self.input_file = [line for line in file]
 
     def parse_request(self) -> dict or [dict]:
-        poke_api = PokedexAPI()
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
-        query = loop.run_until_complete(poke_api.process_requests(
-            self.mode.value, self.input_data))
+        query = loop.run_until_complete(
+            self.poke_api.process_requests(self.mode.value, self.input_data))
         return query
 
     def __str__(self):
@@ -80,14 +80,19 @@ class Request:
 
 class Pokedex:
 
-    def __init__(self, request: Request, api: PokedexAPI, creator:
-                 PokedexObjectCreator):
-        self.request = request
-        self.api = api
-        self.creator = creator
+    pokedex_object_factory_mapper = {
+        ModeEnum.POKEMON: PokedexObjectCreator.PokemonCreator,
+        ModeEnum.ABILITY: PokedexObjectCreator.AbilityCreator,
+        ModeEnum.MOVE: PokedexObjectCreator.MoveCreator
+    }
 
-    def create_pokedexobject(self):
-        responses = api.process_requests()
+    def __init__(self, request: Request):
+        self.request = request
+        self.creator = self.pokedex_object_factory_mapper[self.request.mode]
+        self.pokedex_object_container = []
+
+    def populate_pokedex(self):
+        for data in self.request
 
 
 def setup_commandline_request():
