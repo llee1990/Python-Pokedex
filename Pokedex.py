@@ -98,8 +98,14 @@ class Pokedex:
             self.pokedex_object_container.append(pokedex_object)
 
     def print_contents(self):
-        for pokedex_object in self.pokedex_object_container:
-            print(pokedex_object)
+        if self.request.output_file is None:
+            for pokedex_object in self.pokedex_object_container:
+                print(pokedex_object)
+        else:
+            with open(file=self.request.output_file, mode='w',
+                      encoding='UTF-8') as file:
+                for pokedex_object in self.pokedex_object_container:
+                    file.write(str(pokedex_object) + '\n')
 
 
 def setup_commandline_request():
@@ -152,7 +158,7 @@ def main():
                           input_file="request.txt",
                           input_data=None,
                           expanded=False,
-                          output_file=None)
+                          output_file="output.txt")
     pokedex = Pokedex(new_request)
     pokedex.populate_pokedex()
     pokedex.print_contents()
