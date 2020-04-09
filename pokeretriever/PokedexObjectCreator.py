@@ -2,15 +2,19 @@
 Class PokedexObjectCreator
 """
 
+from abc import ABC, abstractmethod
+import PokedexObject
+
 
 class PokedexObjectCreator(ABC):
+
+    @abstractmethod
     def create_pokedex_object(self):
         """
         Creates Pokedex object
         :return my_pokedex_object:
         """
-        my_pokedex_object = PokedexObject()
-        return my_pokedex_object
+        pass
 
 
 """
@@ -24,8 +28,8 @@ class PokemonCreator(PokedexObjectCreator):
         Creates Pokemon objects
         :return my_pokemon: as a Pokemon object
         """
-        my_pokemon = Pokemon()
-        return my_pokemon
+        pokemon = PokedexObject.Pokemon()
+        return pokemon
 
 
 """
@@ -39,8 +43,8 @@ class MoveCreator(PokedexObjectCreator):
          Creates Move objects
         :return my_move: as a Move object
         """
-        my_move = Move()
-        return my_move
+        move = PokedexObject.Move()
+        return move
 
 
 """
@@ -54,8 +58,8 @@ class StatsCreator(PokedexObjectCreator):
         Creates Stats object
         :return mystat: as a Stats object
         """
-        my_stats = Stats()
-        return my_stats
+        stats = PokedexObject.Stats()
+        return stats
 
 
 """
@@ -69,5 +73,5 @@ class AbilityCreator():
         Creates Ability objects
         :return:
         """
-        my_ability = Ability()
-        return my_ability
+        ability = PokedexObject.Ability()
+        return ability

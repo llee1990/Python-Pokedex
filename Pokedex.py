@@ -9,9 +9,9 @@ to Pokemon API
 
 class ModeEnum(enum.Enum):
 
-    POKEMON = 0
-    ABILITY = 1
-    MOVES = 2
+    POKEMON = "pokemon"
+    ABILITY = "ability"
+    MOVE = "move"
 
 
 class Request:
@@ -40,7 +40,9 @@ class Request:
         :param input_file:as a None or str
         :param output_file:as a None or str
         """
-        self.mode = mode
+        for pokedex_mode in ModeEnum:
+            if mode == pokedex_mode.value:
+                self.mode = mode
         self.input_data = input_data
         self.expanded = expanded
         self.input_file = input_file
@@ -73,8 +75,7 @@ def setup_commandline_request():
     parser.add_argument("mode", type=str,
                         choices=["pokemon", "ability", "move"],
                         help="Either one of pokemon, ability, "
-                             "or move must "
-                             "be chosen. The pokedex will query "
+                             "or move must be chosen. The pokedex will query "
                              "information based on the chosen mode.")
     file_or_data = parser.add_mutually_exclusive_group(required=True)
     file_or_data.add_argument("--inputfile", type=str,
@@ -87,24 +88,18 @@ def setup_commandline_request():
                               "providing a name, name must be a string.")
     parser.add_argument("--expanded", action="store_true",
                         help="Will the Pokedex be in expanded mode? "
-                             "Only "
-                             "pokemon queries support the "
-                             "expanded mode.\n"
-                             "Default: False")
+                             "Only pokemon queries support the expanded "
+                             "mode.\nDefault: False")
     parser.add_argument("--output", type=str,
                         help="The output filename, must end with "
-                             "a .txt "
-                             "extension. If this flag is not provided, "
+                             "a .txt extension. If this flag is not provided, "
                              "print the result to the console.")
     args = parser.parse_args()
     return args
 
 
 def main():
-    """
-    Runs Program
-    :return:
-    """
+
     cmd_args = setup_commandline_request()
     print(cmd_args)
     new_request = Request(cmd_args.mode, cmd_args.expanded,

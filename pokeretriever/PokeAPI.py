@@ -5,6 +5,7 @@ format for Activity mode and outputs data in a readable form.
 
 import asyncio
 import aiohttp
+from PokedexObjectCreator import PokedexObjectCreator
 from abc import ABC
 
 
@@ -68,13 +69,12 @@ class PokedexAPI:
 
 class JSONtoObjectConverter:
 
-    def __init__(self, api: PokedexAPI,
-                 creator) -> None:
+    def __init__(self, api: PokedexAPI, creator: PokedexObjectCreator):
         self.api = api
         self.creator = creator
 
-        def create_pokedexobject(self):
-            responses = api.process_requests()
+    def create_pokedexobject(self):
+        responses = api.process_requests()
 
 
 

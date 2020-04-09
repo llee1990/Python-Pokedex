@@ -18,9 +18,6 @@ class PokedexObject(ABC):
         self.id_ = id_
 
 
-""" Class Pokemon """
-
-
 class Pokemon(PokedexObject):
     """
     Pokemon child class creates Pokemon object
