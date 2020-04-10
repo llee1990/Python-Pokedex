@@ -137,10 +137,15 @@ class Pokemon(PokedexObject):
         """
         Prints out pokemon attributes and their values
         """
-        stats = ', '.join(stat for stat in self.stats)
-        types = ', '.join(type for type in self.types)
-        abilities = ', '.join(ability for ability in self.abilities)
-        moves = ', '.join(move for move in self.moves)
+        if any(isinstance(stat, Stats) for stat in self.stats):
+            stats = ', '.join(str(stat) for stat in self.stats)
+            abilities = ', '.join(str(ability) for ability in self.abilities)
+            moves = ', '.join(str(move) for move in self.moves)
+        else:
+            stats = ', '.join(stat for stat in self.stats)
+            abilities = ', '.join(ability for ability in self.abilities)
+            moves = ', '.join(move for move in self.moves)
+        types = ', '.join(pokemon_type for pokemon_type in self.types)
         return f"\nName: {self.name}\nId: {self.id}\nHeight: {self.height}" \
             f"\nWeight: {self.weight}\nStats:\n'{stats}' \n" \
             f"Types:\n'{types}'\nAbilities:\n'{abilities}'\n" \
