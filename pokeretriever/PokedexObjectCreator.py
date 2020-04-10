@@ -36,9 +36,11 @@ class PokemonCreator(PokedexObjectCreator):
         """
 
         for request in self.queries:
-            yield PokedexObject.Pokemon(**request)
+            pokemon = PokedexObject.Pokemon(**request)
+            self.__parse_extra_data(pokemon)
+            yield pokemon
 
-    def parse_extra_data(self, pokemon):
+    def __parse_extra_data(self, pokemon):
         
         stats = pokemon.stats
         moves = pokemon.moves
@@ -50,29 +52,23 @@ class PokemonCreator(PokedexObjectCreator):
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
             stats_query = loop.run_until_complete(
-                self.poke_api.process_requests("stat", stat))
-            if len(stats_query) == 1:
-                poke_stats.append(stats_query)
-            else:
-                poke_stats = stats_query
+                self.poke_api.process_requests(
+                    "stat", stat['stat']['name']))
+            poke_stats.append(stats_query)
         for move in moves:
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
             move_query = loop.run_until_complete(
-                self.poke_api.process_requests("move", move))
-            if len(move_query) == 1:
-                poke_moves.append(move_query)
-            else:
-                poke_moves = move_query
+                self.poke_api.process_requests(
+                    "move", move['move']['name']))
+            poke_moves.append(move_query)
         for ability in abilities:
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
             ability_query = loop.run_until_complete(
-                self.poke_api.process_requests("ability", ability))
-            if len(ability_query) == 1:
-                poke_abilities.append(ability_query)
-            else:
-                poke_abilities = ability_query
+                self.poke_api.process_requests(
+                    "ability", ability['ability']['name']))
+            poke_abilities.append(ability_query)
         self.__insert_data_in_pokemon(pokemon, poke_moves, poke_stats,
                                       poke_abilities)
 
