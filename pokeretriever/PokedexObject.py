@@ -14,7 +14,7 @@ class PokedexObject(ABC):
         :param name: as type str
         :param id: as type int
         """
-        self.name = name
+        self.name = name.title()
         self.id = id
 
 
@@ -51,7 +51,7 @@ class Move(PokedexObject):
         Returns Move object in formatted string
         :return:
         """
-        return f"Move name: {self.name}\n" \
+        return f"------------------\nMove name: {self.name}\n" \
                f"ID: {self.id}\n" \
                f"Generation: {self.generation}\n" \
                f"Accuracy: {self.accuracy}\n" \
@@ -59,7 +59,7 @@ class Move(PokedexObject):
                f"Power: {self.power}\n" \
                f"Type: {self.type}\n" \
                f"Damage class: {self.damage_class}\n" \
-               f"Effect(short): {self.effect_short}\n"
+               f"Effect(short): {self.effect_short}"
 
 
 class Ability(PokedexObject):
@@ -67,7 +67,8 @@ class Ability(PokedexObject):
     Ability class for creating Ability objects from pokemon API
     """
 
-    def __init__(self, generation: dict, effect_entries: [dict], pokemon: [dict], **kwargs):
+    def __init__(self, generation: dict, effect_entries: [dict],
+                 pokemon: [dict], **kwargs):
         """
         Initializes ability object with the following attributes
 
@@ -80,19 +81,20 @@ class Ability(PokedexObject):
         self.generation = generation['name']
         self.effect = effect_entries[0]['effect']
         self.effect_short = effect_entries[0]['short_effect']
-        self.pokemon = pokemon
+        self.pokemons = [monster['pokemon']['name'] for monster in pokemon]
 
     def __str__(self):
         """
         Returns string of Ability attributes formatted
         :return string: of type str
         """
-        return f"Ability name: {self.name}\n" \
+        pokemons = ', '.join(pokemon for pokemon in self.pokemons)
+        return f"------------------\nAbility name: {self.name}\n" \
                f"ID: {self.id}\n" \
                f"Generation: {self.generation}\n" \
                f"Effect: {self.effect}\n" \
                f"Effect(short): {self.effect_short}\n" \
-               f"pokemon: {self.pokemon}\n" \
+               f"pokemon:\n{pokemons}" \
 
 
 
@@ -111,8 +113,8 @@ class Stats(PokedexObject):
         """
         Prints out stats' attributes and their values
         """
-        return f"\nName: {self.name}\nId: {self.id}\nIs Battle Only:" \
-            f"{self.isBattleOnly}\n"
+        return f"------------------\nName: {self.name}\nId: {self.id}\nIs " \
+            f"Battle Only: {self.isBattleOnly}"
 
 
 class Pokemon(PokedexObject):
@@ -129,7 +131,7 @@ class Pokemon(PokedexObject):
         self.height = height
         self.weight = weight
         self.stats = stats
-        self.types = types
+        self.types = [pokemon_type['type']['name'] for pokemon_type in types]
         self.abilities = abilities
         self.moves = moves
 
@@ -138,15 +140,17 @@ class Pokemon(PokedexObject):
         Prints out pokemon attributes and their values
         """
         if any(isinstance(stat, Stats) for stat in self.stats):
-            stats = ', '.join(str(stat) for stat in self.stats)
-            abilities = ', '.join(str(ability) for ability in self.abilities)
-            moves = ', '.join(str(move) for move in self.moves)
+            stats = '\n'.join(str(stat) for stat in self.stats)
+            abilities = '\n'.join(str(ability) for ability in self.abilities)
+            moves = '\n'.join(str(move) for move in self.moves)
         else:
             stats = ', '.join(stat for stat in self.stats)
             abilities = ', '.join(ability for ability in self.abilities)
             moves = ', '.join(move for move in self.moves)
         types = ', '.join(pokemon_type for pokemon_type in self.types)
-        return f"\nName: {self.name}\nId: {self.id}\nHeight: {self.height}" \
-            f"\nWeight: {self.weight}\nStats:\n'{stats}' \n" \
-            f"Types:\n'{types}'\nAbilities:\n'{abilities}'\n" \
-            f"Moves:\n'{moves}'\n"
+        return f"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-" \
+            f"\nName: {self.name}\nId: {self.id}\nHeight: {self.height}" \
+            f"\nWeight: {self.weight}\nTypes:\n{types}\n\n" \
+            f">>STATS<<\n{stats}\n\n>>ABILITIES<<\n{abilities}" \
+            f"\n>>MOVES<<\n\n{moves}\n" \
+            f"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-"

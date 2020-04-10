@@ -155,10 +155,10 @@ def main():
     #                       expanded=cmd_args.expanded,
     #                       output_file=cmd_args.output)
     new_request = Request(mode="pokemon",
-                          input_file=None,
-                          input_data=1,
-                          expanded=False,
-                          output_file=None)
+                          input_file='request.txt',
+                          input_data=None,
+                          expanded=True,
+                          output_file='output.txt')
     pokedex = Pokedex(new_request)
     pokedex.populate_pokedex()
     pokedex.print_contents()

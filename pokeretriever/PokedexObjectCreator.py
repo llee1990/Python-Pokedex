@@ -38,20 +38,24 @@ class PokemonCreator(PokedexObjectCreator):
 
         for request in self.queries:
             pokemon = PokedexObject.Pokemon(**request)
-            pokemon.stats = [stat['stat']['name'] + ": " +
-                             str(stat['base_stat'])
-                             for stat in pokemon.stats]
-            pokemon.moves = [move['move']['name'] + ": lvl " +
-                             str(move['version_group_details'][0][
-                                 'level_learned_at'])
-                             for move in pokemon.moves]
-            pokemon.abilities = [ability['ability']['name']
-                                 for ability in pokemon.abilities]
-            pokemon.types = [pokemon_type['type']['name']
-                             for pokemon_type in pokemon.types]
             if self.expanded:
                 self.__expanded_mode(pokemon)
+            else:
+                self.__unexpanded_mode(pokemon)
             yield pokemon
+
+    @staticmethod
+    def __unexpanded_mode(pokemon):
+        pokemon.stats = [stat['stat']['name'] + ": " +
+                         str(stat['base_stat'])
+                         for stat in pokemon.stats]
+        pokemon.moves = [move['move']['name'] + ": lvl " +
+                         str(move['version_group_details'][0][
+                                 'level_learned_at'])
+                         for move in pokemon.moves]
+        pokemon.abilities = [ability['ability']['name']
+                             for ability in pokemon.abilities]
+
 
     def __expanded_mode(self, pokemon):
         
