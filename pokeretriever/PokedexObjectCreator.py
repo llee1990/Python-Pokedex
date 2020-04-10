@@ -72,6 +72,7 @@ class PokemonCreator(PokedexObjectCreator):
                 self.poke_api.process_requests(
                     "stat", stat['stat']['name']))
             poke_stats.append(stats_query)
+            loop.close()
         for move in moves:
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
@@ -79,6 +80,7 @@ class PokemonCreator(PokedexObjectCreator):
                 self.poke_api.process_requests(
                     "move", move['move']['name']))
             poke_moves.append(move_query)
+            loop.close()
         for ability in abilities:
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
@@ -86,6 +88,7 @@ class PokemonCreator(PokedexObjectCreator):
                 self.poke_api.process_requests(
                     "ability", ability['ability']['name']))
             poke_abilities.append(ability_query)
+            loop.close()
         self.__insert_data_in_pokemon(pokemon, poke_moves, poke_stats,
                                       poke_abilities)
 
