@@ -30,6 +30,7 @@ Factory Class makes PokemonCreator object
 
 
 class PokemonCreator(PokedexObjectCreator):
+
     def create_pokedex_object(self):
         """
         Creates Pokemon objects
@@ -39,10 +40,38 @@ class PokemonCreator(PokedexObjectCreator):
         for request in self.queries:
             pokemon = PokedexObject.Pokemon(**request)
             if self.expanded:
-                self.__expanded_mode(pokemon)
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+                new_data = loop.run_until_complete(
+                    self.__expanded_mode(pokemon))
+                self.__insert_data_in_pokemon(pokemon, *new_data)
             else:
                 self.__unexpanded_mode(pokemon)
             yield pokemon
+
+    async def __expanded_mode(self, pokemon):
+        stats = pokemon.stats
+        moves = pokemon.moves
+        abilities = pokemon.abilities
+        poke_moves = []
+        poke_stats = []
+        poke_abilities = []
+        for stat in stats:
+            stats_query = \
+                await self.poke_api.process_requests(
+                    "stat", stat['stat']['name'])
+            poke_stats.append(stats_query)
+        for move in moves:
+            move_query = \
+                await self.poke_api.process_requests(
+                    "move", move['move']['name'])
+            poke_moves.append(move_query)
+        for ability in abilities:
+            ability_query = \
+                await self.poke_api.process_requests(
+                    "ability", ability['ability']['name'])
+            poke_abilities.append(ability_query)
+        return [poke_moves, poke_stats, poke_abilities]
 
     @staticmethod
     def __unexpanded_mode(pokemon):
@@ -57,40 +86,6 @@ class PokemonCreator(PokedexObjectCreator):
                              for ability in pokemon.abilities]
 
 
-    def __expanded_mode(self, pokemon):
-        
-        stats = pokemon.stats
-        moves = pokemon.moves
-        abilities = pokemon.abilities
-        poke_moves = []
-        poke_stats = []
-        poke_abilities = []
-        for stat in stats:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            stats_query = loop.run_until_complete(
-                self.poke_api.process_requests(
-                    "stat", stat['stat']['name']))
-            poke_stats.append(stats_query)
-            loop.close()
-        for move in moves:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            move_query = loop.run_until_complete(
-                self.poke_api.process_requests(
-                    "move", move['move']['name']))
-            poke_moves.append(move_query)
-            loop.close()
-        for ability in abilities:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            ability_query = loop.run_until_complete(
-                self.poke_api.process_requests(
-                    "ability", ability['ability']['name']))
-            poke_abilities.append(ability_query)
-            loop.close()
-        self.__insert_data_in_pokemon(pokemon, poke_moves, poke_stats,
-                                      poke_abilities)
 
     @staticmethod
     def __insert_data_in_pokemon(pokemon, moves, stats, abilities):
