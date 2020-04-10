@@ -64,6 +64,7 @@ class Request:
         asyncio.set_event_loop(loop)
         query = loop.run_until_complete(
             self.poke_api.process_requests(self.mode.value, self.input_data))
+        loop.close()
         return query
 
     def __str__(self):
@@ -158,7 +159,7 @@ def main():
                           input_file=None,
                           input_data=1,
                           expanded=True,
-                          output_file='output.txt')
+                          output_file=None)
     pokedex = Pokedex()
     pokedex.execute_request(new_request)
     pokedex.print_contents(new_request)
