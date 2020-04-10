@@ -10,9 +10,10 @@ import asyncio
 
 class PokedexObjectCreator(ABC):
 
-    def __init__(self, queries):
+    def __init__(self, queries, expanded):
         self.poke_api = PokedexAPI()
         self.queries = queries
+        self.expanded = expanded
 
     @abstractmethod
     def create_pokedex_object(self):
@@ -37,10 +38,22 @@ class PokemonCreator(PokedexObjectCreator):
 
         for request in self.queries:
             pokemon = PokedexObject.Pokemon(**request)
-            self.__parse_extra_data(pokemon)
+            if not self.expanded:
+                self.__unexpanded_mode(pokemon)
+            else:
+                self.__expanded_mode(pokemon)
             yield pokemon
 
-    def __parse_extra_data(self, pokemon):
+    @staticmethod
+    def __unexpanded_mode(pokemon):
+        pokemon.stats = [stat['stat']['name'] for stat in pokemon.stats]
+        pokemon.moves = [move['move']['name'] for move in pokemon.moves]
+        pokemon.abilities = [ability['ability']['name'] for ability in
+                             pokemon.abilities]
+        pokemon.types = [pokemon_type['type']['name'] for pokemon_type in
+                         pokemon.types]
+
+    def __expanded_mode(self, pokemon):
         
         stats = pokemon.stats
         moves = pokemon.moves

@@ -111,7 +111,7 @@ class Stats(PokedexObject):
         """
         Prints out stats' attributes and their values
         """
-        return f"\nName:{self.name}\nId: {self.id}\nIs Battle Only:" \
+        return f"\nName: {self.name}\nId: {self.id}\nIs Battle Only:" \
             f"{self.isBattleOnly}\n"
 
 
@@ -137,7 +137,11 @@ class Pokemon(PokedexObject):
         """
         Prints out pokemon attributes and their values
         """
-        return f"\nName:{self.name}\nId: {self.id}\nHeight:{self.height}" \
-            f"\nWeight:{self.weight}\nStats:{self.stats} \n" \
-            f"Types:{self.types}\nAbilities:{self.abilities}\n" \
-            f"Move: {self.moves}\n"
+        stats = ', '.join(stat for stat in self.stats)
+        types = ', '.join(type for type in self.types)
+        abilities = ', '.join(ability for ability in self.abilities)
+        moves = ', '.join(move for move in self.moves)
+        return f"\nName: {self.name}\nId: {self.id}\nHeight: {self.height}" \
+            f"\nWeight: {self.weight}\nStats:\n'{stats}' \n" \
+            f"Types:\n'{types}'\nAbilities:\n'{abilities}'\n" \
+            f"Moves:\n'{moves}'\n"

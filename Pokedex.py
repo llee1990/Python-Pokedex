@@ -93,7 +93,7 @@ class Pokedex:
 
     def populate_pokedex(self):
         data = self.request.parse_request()
-        creator = self.creator(data)
+        creator = self.creator(data, expanded=self.request.expanded)
         for pokedex_object in creator.create_pokedex_object():
             self.pokedex_object_container.append(pokedex_object)
 
@@ -158,7 +158,7 @@ def main():
                           input_file=None,
                           input_data=1,
                           expanded=False,
-                          output_file="output.txt")
+                          output_file=None)
     pokedex = Pokedex(new_request)
     pokedex.populate_pokedex()
     pokedex.print_contents()
