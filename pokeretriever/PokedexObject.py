@@ -94,7 +94,7 @@ class Ability(PokedexObject):
                f"Generation: {self.generation}\n" \
                f"Effect: {self.effect}\n" \
                f"Effect(short): {self.effect_short}\n" \
-               f"pokemon:\n{pokemons}" \
+               f"Pokemon:\n{pokemons}" \
 
 
 
@@ -151,6 +151,6 @@ class Pokemon(PokedexObject):
         return f"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-" \
             f"\nName: {self.name}\nId: {self.id}\nHeight: {self.height}" \
             f"\nWeight: {self.weight}\nTypes:\n{types}\n\n" \
-            f">>STATS<<\n{stats}\n\n>>ABILITIES<<\n{abilities}" \
-            f"\n>>MOVES<<\n\n{moves}\n" \
+            f">>STATS<<\n{stats}\n\n>>ABILITIES<<\n{abilities}\n" \
+            f"\n>>MOVES<<\n{moves}\n" \
             f"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-"
