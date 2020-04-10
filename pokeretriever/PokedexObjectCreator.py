@@ -4,7 +4,7 @@ Class PokedexObjectCreator
 
 from abc import ABC, abstractmethod
 from pokeretriever import PokedexObject
-from PokeAPI import PokedexAPI
+from pokeretriever.PokeAPI import PokedexAPI
 import asyncio
 
 
