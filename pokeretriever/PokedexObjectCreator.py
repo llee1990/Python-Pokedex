@@ -73,10 +73,6 @@ class PokemonCreator(PokedexObjectCreator):
             ability_query = await self.poke_api.process_requests(
                 "ability", ability['ability']['name'])
             poke_abilities.append(ability_query)
-        print(poke_stats[1])
-        # poke_moves = await asyncio.gather(*poke_moves)
-        # poke_stats = await asyncio.gather(*poke_stats)
-        # poke_abilities = await asyncio.gather(*poke_abilities)
         await self.__insert_data_in_pokemon(pokemon, poke_moves, poke_stats,
                                             poke_abilities)
 
@@ -94,9 +90,14 @@ class PokemonCreator(PokedexObjectCreator):
         moves_responses = await asyncio.gather(*moves_coroutines)
         stats_responses = await asyncio.gather(*stats_coroutines)
         ability_responses = await asyncio.gather(*ability_coroutines)
-        pokemon.moves.append(moves_responses)
-        pokemon.stats.append(stats_responses)
-        pokemon.abilities.append(ability_responses)
+        for move in moves_responses:
+            pokemon.moves.append(move)
+        for stat in stats_responses:
+            pokemon.stats.append(stat)
+        for ability in ability_responses:
+            pokemon.abilities.append(ability)
+
+
 
 """
 Factory Class makes Move objects 
