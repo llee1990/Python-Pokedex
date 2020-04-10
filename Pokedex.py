@@ -86,23 +86,23 @@ class Pokedex:
         ModeEnum.MOVE: PokedexObjectCreator.MoveCreator
     }
 
-    def __init__(self, request: Request):
-        self.request = request
-        self.creator = self.pokedex_object_factory_mapper[self.request.mode]
+    def __init__(self):
+        self.creator = self.pokedex_object_factory_mapper
         self.pokedex_object_container = []
 
-    def populate_pokedex(self):
-        data = self.request.parse_request()
-        creator = self.creator(data, expanded=self.request.expanded)
+    def execute_request(self, request: Request):
+        creator = self.creator[request.mode]
+        data = request.parse_request()
+        creator = creator(data, expanded=request.expanded)
         for pokedex_object in creator.create_pokedex_object():
             self.pokedex_object_container.append(pokedex_object)
 
-    def print_contents(self):
-        if self.request.output_file is None:
+    def print_contents(self, request: Request):
+        if request.output_file is None:
             for pokedex_object in self.pokedex_object_container:
                 print(pokedex_object)
         else:
-            with open(file=self.request.output_file, mode='w',
+            with open(file=request.output_file, mode='w',
                       encoding='UTF-8') as file:
                 for pokedex_object in self.pokedex_object_container:
                     file.write(str(pokedex_object) + '\n')
@@ -159,9 +159,9 @@ def main():
                           input_data=None,
                           expanded=True,
                           output_file='output.txt')
-    pokedex = Pokedex(new_request)
-    pokedex.populate_pokedex()
-    pokedex.print_contents()
+    pokedex = Pokedex()
+    pokedex.execute_request(new_request)
+    pokedex.print_contents(new_request)
 
 
 if __name__ == '__main__':
