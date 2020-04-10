@@ -132,23 +132,6 @@ class Pokemon(PokedexObject):
         self.types = types
         self.abilities = abilities
         self.moves = moves
-    #
-    # def translate_data(self, api_dict):
-    #     """ Transfers api data into pokemon
-    #     object attributes
-    #     """
-    #     self.ab_data = api_dict
-    #     self.name = self.ab_data['name']
-    #     self.id = self.ab_data['id']
-    #     self.height = self.ab_data['height']
-    #     self.weight = self.ab_data['weight']
-    #     self.stats = self.ab_data['stats']
-    #     self.types = self.ab_data['types']
-    #     self.abilities = self.ab_data['abilities']
-    #     self.moves = self.ab_data['moves']
-    #
-    #     # for item in self.ab_data['pokemon']:
-    #     #     self.pokemons.append(element['pokemon']['name'])
 
     def __str__(self):
         """
