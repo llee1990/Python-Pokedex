@@ -147,18 +147,18 @@ def setup_commandline_request():
 
 def main():
 
-    cmd_args = setup_commandline_request()
-    print(cmd_args)
-    new_request = Request(mode=cmd_args.mode,
-                          input_file=cmd_args.inputfile,
-                          input_data=cmd_args.inputdata,
-                          expanded=cmd_args.expanded,
-                          output_file=cmd_args.output)
-    # new_request = Request(mode="move",
-    #                       input_file='request.txt',
-    #                       input_data=None,
-    #                       expanded=False,
-    #                       output_file='output.txt')
+    # cmd_args = setup_commandline_request()
+    # print(cmd_args)
+    # new_request = Request(mode=cmd_args.mode,
+    #                       input_file=cmd_args.inputfile,
+    #                       input_data=cmd_args.inputdata,
+    #                       expanded=cmd_args.expanded,
+    #                       output_file=cmd_args.output)
+    new_request = Request(mode="pokemon",
+                          input_file=None,
+                          input_data=1,
+                          expanded=True,
+                          output_file='output.txt')
     pokedex = Pokedex()
     pokedex.execute_request(new_request)
     pokedex.print_contents(new_request)
