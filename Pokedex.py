@@ -54,6 +54,7 @@ class Request:
         self.output_file = output_file
         if self.input_file is not None:
             self.__convert_file_to_data()
+        self.request_data = self.parse_request()
 
     def __convert_file_to_data(self):
         with open(file=self.input_file, mode='r', encoding='UTF-8') as file:
@@ -64,7 +65,6 @@ class Request:
         asyncio.set_event_loop(loop)
         query = loop.run_until_complete(
             self.poke_api.process_requests(self.mode.value, self.input_data))
-        loop.close()
         return query
 
     def __str__(self):
@@ -91,12 +91,14 @@ class Pokedex:
         self.creator = self.pokedex_object_factory_mapper
         self.pokedex_object_container = []
 
-    def execute_request(self, request: Request):
+    async def execute_request(self, request: Request):
         creator = self.creator[request.mode]
-        data = request.parse_request()
-        creator = creator(data, expanded=request.expanded)
-        for pokedex_object in creator.create_pokedex_object():
-            self.pokedex_object_container.append(pokedex_object)
+        coroutines = [creator(expanded=request.expanded)
+                      .create_pokedex_object(pokedex_object)
+                      for pokedex_object in request.request_data]
+        responses = await asyncio.gather(*coroutines)
+        for response in responses:
+            self.pokedex_object_container.append(response)
 
     def print_contents(self, request: Request):
         if request.output_file is None:
@@ -156,12 +158,14 @@ def main():
     #                       expanded=cmd_args.expanded,
     #                       output_file=cmd_args.output)
     new_request = Request(mode="pokemon",
-                          input_file='request.txt',
+                          input_file="request.txt",
                           input_data=None,
                           expanded=True,
-                          output_file='output.txt')
+                          output_file=None)
     pokedex = Pokedex()
-    pokedex.execute_request(new_request)
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(pokedex.execute_request(new_request))
     pokedex.print_contents(new_request)
 
 
