@@ -5,6 +5,7 @@ format for Activity mode and outputs data in a readable form.
 
 import asyncio
 import aiohttp
+from aiohttp import ClientPayloadError, web
 
 
 class PokedexAPI:
@@ -18,16 +19,21 @@ class PokedexAPI:
         self.session = aiohttp.ClientSession
 
     @staticmethod
-    async def get_pokedex_data(url, session) -> dict:
+    async def get_pokedex_data(url, session, status=None) -> dict:
         """
         Makes request to API and returns a json formatted data
         :param url: as string
         :param session: as string
         :return json_response as a dict:
         """
-        response = await session.request(method="GET", url=url)
-        json_response = await response.json()
-        return json_response
+        # response = await session.request(method="GET", url=url)
+        try:
+            response = await session.request(method="GET", url=url)
+            json_response = await response.json()
+            return json_response
+        except Exception as e:
+            status = 500
+            print(f"status={status}")
 
     async def __process_single_request(self, request_type: str, req_id):
         """
@@ -37,9 +43,14 @@ class PokedexAPI:
         :return response: as a dict
         """
         url = self.url + f"{request_type}/{req_id}"
-        async with self.session() as session:
-            response = await self.get_pokedex_data(url, session)
-            return response
+        try:
+            async with self.session() as session:
+                response = await self.get_pokedex_data(url, session)
+                return response
+        except ClientPayloadError:
+            print(" Not the right content being loaded")
+        except aiohttp.InvalidURL:
+            print("Improper URL")
 
     async def process_requests(
             self, request_type: str, request: list or str):
@@ -63,4 +74,3 @@ class PokedexAPI:
                               new_url in list_urls]
                 responses = await asyncio.gather(*coroutines)
                 return responses
-            

@@ -56,7 +56,6 @@ class PokemonCreator(PokedexObjectCreator):
         pokemon.abilities = [ability['ability']['name']
                              for ability in pokemon.abilities]
 
-
     def __expanded_mode(self, pokemon):
         
         stats = pokemon.stats
@@ -65,32 +64,35 @@ class PokemonCreator(PokedexObjectCreator):
         poke_moves = []
         poke_stats = []
         poke_abilities = []
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
         for stat in stats:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
+            # loop = asyncio.new_event_loop()
+            # asyncio.set_event_loop(loop)
             stats_query = loop.run_until_complete(
                 self.poke_api.process_requests(
                     "stat", stat['stat']['name']))
             poke_stats.append(stats_query)
-            loop.close()
+            # loop.close()
         for move in moves:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
+            # loop = asyncio.new_event_loop()
+            # asyncio.set_event_loop(loop)
             move_query = loop.run_until_complete(
                 self.poke_api.process_requests(
                     "move", move['move']['name']))
             poke_moves.append(move_query)
-            loop.close()
+            # loop.close()
         for ability in abilities:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
+            # loop = asyncio.new_event_loop()
+            # asyncio.set_event_loop(loop)
             ability_query = loop.run_until_complete(
                 self.poke_api.process_requests(
                     "ability", ability['ability']['name']))
             poke_abilities.append(ability_query)
-            loop.close()
+            # loop.close()
         self.__insert_data_in_pokemon(pokemon, poke_moves, poke_stats,
                                       poke_abilities)
+        # loop.close()
 
     @staticmethod
     def __insert_data_in_pokemon(pokemon, moves, stats, abilities):

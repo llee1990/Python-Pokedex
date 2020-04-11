@@ -1,13 +1,12 @@
-"""
-"""
-
 from abc import ABC
+
+"""
+Base Class of Pokemon classes
+"""
 
 
 class PokedexObject(ABC):
-    """
-    Base Class of Pokemon classes
-    """
+
     def __init__(self, name: str, id: int, **kwargs) -> None:
         """
         Initializes attributes of PokedexObject class
@@ -22,7 +21,6 @@ class Move(PokedexObject):
     """
     Move class makes Move objects
     """
-
     def __init__(self, generation: [str], accuracy: int,
                  pp: int, power: int, type: {str}, damage_class: {dict},
                  effect_entries: [dict], **kwargs):
@@ -140,17 +138,17 @@ class Pokemon(PokedexObject):
         Prints out pokemon attributes and their values
         """
         if any(isinstance(stat, Stats) for stat in self.stats):
-            # stats = '\n'.join(str(stat) for stat in self.stats)
+            stats = '\n'.join(str(stat) for stat in self.stats)
             abilities = '\n'.join(str(ability) for ability in self.abilities)
             moves = '\n'.join(str(move) for move in self.moves)
         else:
-            # stats = ', '.join(stat for stat in self.stats)
+            stats = ', '.join(stat for stat in self.stats)
             abilities = ', '.join(ability for ability in self.abilities)
             moves = ', '.join(move for move in self.moves)
         types = ', '.join(pokemon_type for pokemon_type in self.types)
         return f"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-" \
             f"\nName: {self.name}\nId: {self.id}\nHeight: {self.height}" \
             f"\nWeight: {self.weight}\nTypes:\n{types}\n\n"\
-            # f">>STATS<<\n{stats}\n\n>>ABILITIES<<\n{abilities}\n" \
-            # f"\n>>MOVES<<\n{moves}\n" \
-            # # f"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-"
+            f">>STATS<<\n{stats}\n\n>>ABILITIES<<\n{abilities}\n" \
+            f"\n>>MOVES<<\n{moves}\n" \
+            # f"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-"
