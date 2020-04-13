@@ -137,12 +137,11 @@ class Pokemon(PokedexObject):
         """
         Prints out pokemon attributes and their values
         """
-        if any(isinstance(ability, Ability) for ability in self.abilities):
+        if any(isinstance(stat, Stats) for stat in self.stats):
             stats = '\n'.join(str(stat) for stat in self.stats)
             abilities = '\n'.join(str(ability) for ability in self.abilities)
             moves = '\n'.join(str(move) for move in self.moves)
         else:
-            print(self.abilities[0])
             stats = ', '.join(stat for stat in self.stats)
             abilities = ', '.join(ability for ability in self.abilities)
             moves = ', '.join(move for move in self.moves)
