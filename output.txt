@@ -1,0 +1,1552 @@
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+Name: Bulbasaur
+Id: 1
+Height: 7
+Weight: 69
+Types:
+poison, grass
+
+>>STATS<<
+------------------
+Name: Speed
+Id: 6
+Is Battle Only: False
+------------------
+Name: Special-Defense
+Id: 5
+Is Battle Only: False
+------------------
+Name: Special-Attack
+Id: 4
+Is Battle Only: False
+------------------
+Name: Defense
+Id: 3
+Is Battle Only: False
+------------------
+Name: Attack
+Id: 2
+Is Battle Only: False
+------------------
+Name: Hp
+Id: 1
+Is Battle Only: False
+
+>>ABILITIES<<
+------------------
+Ability name: Chlorophyll
+ID: 34
+Generation: generation-iii
+Effect: This Pokémon's Speed is doubled during strong sunlight.
+
+This bonus does not count as a stat modifier.
+Effect(short): Doubles Speed during strong sunlight.
+Pokemon:
+bulbasaur, ivysaur, venusaur, oddish, gloom, vileplume, bellsprout, weepinbell, victreebel, exeggcute, exeggutor, tangela, bellossom, hoppip, skiploom, jumpluff, sunkern, sunflora, seedot, nuzleaf, shiftry, tropius, cherubi, tangrowth, leafeon, sewaddle, swadloon, leavanny, cottonee, whimsicott, petilil, lilligant, maractus, deerling, sawsbuck
+------------------
+Ability name: Overgrow
+ID: 65
+Generation: generation-iii
+Effect: When this Pokémon has 1/3 or less of its HP remaining, its grass-type moves inflict 1.5× as much regular damage.
+Effect(short): Strengthens grass moves to inflict 1.5× damage at 1/3 max HP or less.
+Pokemon:
+bulbasaur, ivysaur, venusaur, chikorita, bayleef, meganium, treecko, grovyle, sceptile, turtwig, grotle, torterra, snivy, servine, serperior, pansage, simisage, chespin, quilladin, chesnaught, rowlet, dartrix, decidueye
+
+>>MOVES<<
+------------------
+Move name: Razor-Wind
+ID: 13
+Generation: generation-i
+Accuracy: 100
+PP: 10
+Power: 80
+Type: normal
+Damage class: special
+Effect(short): Requires a turn to charge before attacking.
+------------------
+Move name: Swords-Dance
+ID: 14
+Generation: generation-i
+Accuracy: None
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the user's Attack by two stages.
+------------------
+Move name: Cut
+ID: 15
+Generation: generation-i
+Accuracy: 95
+PP: 30
+Power: 50
+Type: normal
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Bind
+ID: 20
+Generation: generation-i
+Accuracy: 85
+PP: 20
+Power: 15
+Type: normal
+Damage class: physical
+Effect(short): Prevents the target from fleeing and inflicts damage for 2-5 turns.
+------------------
+Move name: Vine-Whip
+ID: 22
+Generation: generation-i
+Accuracy: 100
+PP: 25
+Power: 45
+Type: grass
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Headbutt
+ID: 29
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 70
+Type: normal
+Damage class: physical
+Effect(short): Has a $effect_chance% chance to make the target flinch.
+------------------
+Move name: Tackle
+ID: 33
+Generation: generation-i
+Accuracy: 100
+PP: 35
+Power: 40
+Type: normal
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Body-Slam
+ID: 34
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 85
+Type: normal
+Damage class: physical
+Effect(short): Has a $effect_chance% chance to paralyze the target.
+------------------
+Move name: Take-Down
+ID: 36
+Generation: generation-i
+Accuracy: 85
+PP: 20
+Power: 90
+Type: normal
+Damage class: physical
+Effect(short): User receives 1/4 the damage it inflicts in recoil.
+------------------
+Move name: Double-Edge
+ID: 38
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 120
+Type: normal
+Damage class: physical
+Effect(short): User receives 1/3 the damage inflicted in recoil.
+------------------
+Move name: Growl
+ID: 45
+Generation: generation-i
+Accuracy: 100
+PP: 40
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's Attack by one stage.
+------------------
+Move name: Strength
+ID: 70
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 80
+Type: normal
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Mega-Drain
+ID: 72
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 40
+Type: grass
+Damage class: special
+Effect(short): Drains half the damage inflicted to heal the user.
+------------------
+Move name: Leech-Seed
+ID: 73
+Generation: generation-i
+Accuracy: 90
+PP: 10
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Seeds the target, stealing HP from it every turn.
+------------------
+Move name: Growth
+ID: 74
+Generation: generation-i
+Accuracy: None
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the user's Attack and Special Attack by one stage.
+------------------
+Move name: Razor-Leaf
+ID: 75
+Generation: generation-i
+Accuracy: 95
+PP: 25
+Power: 55
+Type: grass
+Damage class: physical
+Effect(short): Has an increased chance for a critical hit.
+------------------
+Move name: Solar-Beam
+ID: 76
+Generation: generation-i
+Accuracy: 100
+PP: 10
+Power: 120
+Type: grass
+Damage class: special
+Effect(short): Requires a turn to charge before attacking.
+------------------
+Move name: Poison-Powder
+ID: 77
+Generation: generation-i
+Accuracy: 75
+PP: 35
+Power: None
+Type: poison
+Damage class: status
+Effect(short): Poisons the target.
+------------------
+Move name: Sleep-Powder
+ID: 79
+Generation: generation-i
+Accuracy: 75
+PP: 15
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Puts the target to sleep.
+------------------
+Move name: Petal-Dance
+ID: 80
+Generation: generation-i
+Accuracy: 100
+PP: 10
+Power: 120
+Type: grass
+Damage class: special
+Effect(short): Hits every turn for 2-3 turns, then confuses the user.
+------------------
+Move name: String-Shot
+ID: 81
+Generation: generation-i
+Accuracy: 95
+PP: 40
+Power: None
+Type: bug
+Damage class: status
+Effect(short): Lowers the target's Speed by two stages.
+------------------
+Move name: Toxic
+ID: 92
+Generation: generation-i
+Accuracy: 90
+PP: 10
+Power: None
+Type: poison
+Damage class: status
+Effect(short): Badly poisons the target, inflicting more damage every turn.
+------------------
+Move name: Rage
+ID: 99
+Generation: generation-i
+Accuracy: 100
+PP: 20
+Power: 20
+Type: normal
+Damage class: physical
+Effect(short): If the user is hit after using this move, its Attack rises by one stage.
+------------------
+Move name: Mimic
+ID: 102
+Generation: generation-i
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Copies the target's last used move.
+------------------
+Move name: Double-Team
+ID: 104
+Generation: generation-i
+Accuracy: None
+PP: 15
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the user's evasion by one stage.
+------------------
+Move name: Defense-Curl
+ID: 111
+Generation: generation-i
+Accuracy: None
+PP: 40
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises user's Defense by one stage.
+------------------
+Move name: Light-Screen
+ID: 113
+Generation: generation-i
+Accuracy: None
+PP: 30
+Power: None
+Type: psychic
+Damage class: status
+Effect(short): Reduces damage from special attacks by 50% for five turns.
+------------------
+Move name: Reflect
+ID: 115
+Generation: generation-i
+Accuracy: None
+PP: 20
+Power: None
+Type: psychic
+Damage class: status
+Effect(short): Reduces damage from physical attacks by half.
+------------------
+Move name: Bide
+ID: 117
+Generation: generation-i
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: physical
+Effect(short): User waits for two turns, then hits back for twice the damage it took.
+------------------
+Move name: Sludge
+ID: 124
+Generation: generation-i
+Accuracy: 100
+PP: 20
+Power: 65
+Type: poison
+Damage class: special
+Effect(short): Has a $effect_chance% chance to poison the target.
+------------------
+Move name: Skull-Bash
+ID: 130
+Generation: generation-i
+Accuracy: 100
+PP: 10
+Power: 130
+Type: normal
+Damage class: physical
+Effect(short): Raises the user's Defense by one stage.  User charges for one turn before attacking.
+------------------
+Move name: Amnesia
+ID: 133
+Generation: generation-i
+Accuracy: None
+PP: 20
+Power: None
+Type: psychic
+Damage class: status
+Effect(short): Raises the user's Special Defense by two stages.
+------------------
+Move name: Flash
+ID: 148
+Generation: generation-i
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's accuracy by one stage.
+------------------
+Move name: Rest
+ID: 156
+Generation: generation-i
+Accuracy: None
+PP: 10
+Power: None
+Type: psychic
+Damage class: status
+Effect(short): User sleeps for two turns, completely healing itself.
+------------------
+Move name: Substitute
+ID: 164
+Generation: generation-i
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Transfers 1/4 of the user's max HP into a doll, protecting the user from further damage or status changes until it breaks.
+------------------
+Move name: Snore
+ID: 173
+Generation: generation-ii
+Accuracy: 100
+PP: 15
+Power: 50
+Type: normal
+Damage class: special
+Effect(short): Has a $effect_chance% chance to make the target flinch.  Only works if the user is sleeping.
+------------------
+Move name: Curse
+ID: 174
+Generation: generation-ii
+Accuracy: None
+PP: 10
+Power: None
+Type: ghost
+Damage class: status
+Effect(short): Ghosts pay half their max HP to hurt the target every turn.  Others decrease Speed but raise Attack and Defense.
+------------------
+Move name: Protect
+ID: 182
+Generation: generation-ii
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Prevents any moves from hitting the user this turn.
+------------------
+Move name: Sludge-Bomb
+ID: 188
+Generation: generation-ii
+Accuracy: 100
+PP: 10
+Power: 90
+Type: poison
+Damage class: special
+Effect(short): Has a $effect_chance% chance to poison the target.
+------------------
+Move name: Mud-Slap
+ID: 189
+Generation: generation-ii
+Accuracy: 100
+PP: 10
+Power: 20
+Type: ground
+Damage class: special
+Effect(short): Has a $effect_chance% chance to lower the target's accuracy by one stage.
+------------------
+Move name: Giga-Drain
+ID: 202
+Generation: generation-ii
+Accuracy: 100
+PP: 10
+Power: 75
+Type: grass
+Damage class: special
+Effect(short): Drains half the damage inflicted to heal the user.
+------------------
+Move name: Endure
+ID: 203
+Generation: generation-ii
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Prevents the user's HP from lowering below 1 this turn.
+------------------
+Move name: Charm
+ID: 204
+Generation: generation-ii
+Accuracy: 100
+PP: 20
+Power: None
+Type: fairy
+Damage class: status
+Effect(short): Lowers the target's Attack by two stages.
+------------------
+Move name: Swagger
+ID: 207
+Generation: generation-ii
+Accuracy: 85
+PP: 15
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the target's Attack by two stages and confuses the target.
+------------------
+Move name: Fury-Cutter
+ID: 210
+Generation: generation-ii
+Accuracy: 95
+PP: 20
+Power: 40
+Type: bug
+Damage class: physical
+Effect(short): Power doubles every turn this move is used in succession after the first, maxing out after five turns.
+------------------
+Move name: Attract
+ID: 213
+Generation: generation-ii
+Accuracy: 100
+PP: 15
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Target falls in love if it has the opposite gender, and has a 50% chance to refuse attacking the user.
+------------------
+Move name: Sleep-Talk
+ID: 214
+Generation: generation-ii
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Randomly uses one of the user's other three moves.  Only works if the user is sleeping.
+------------------
+Move name: Return
+ID: 216
+Generation: generation-ii
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: physical
+Effect(short): Power increases with happiness, up to a maximum of 102.
+------------------
+Move name: Frustration
+ID: 218
+Generation: generation-ii
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: physical
+Effect(short): Power increases as happiness decreases, up to a maximum of 102.
+------------------
+Move name: Safeguard
+ID: 219
+Generation: generation-ii
+Accuracy: None
+PP: 25
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Protects the user's field from major status ailments and confusion for five turns.
+------------------
+Move name: Sweet-Scent
+ID: 230
+Generation: generation-ii
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's evasion by one stage.
+------------------
+Move name: Synthesis
+ID: 235
+Generation: generation-ii
+Accuracy: None
+PP: 5
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Heals the user by half its max HP.  Affected by weather.
+------------------
+Move name: Hidden-Power
+ID: 237
+Generation: generation-ii
+Accuracy: 100
+PP: 15
+Power: 60
+Type: normal
+Damage class: special
+Effect(short): Power and type depend upon user's IVs.  Power can range from 30 to 70.
+------------------
+Move name: Sunny-Day
+ID: 241
+Generation: generation-ii
+Accuracy: None
+PP: 5
+Power: None
+Type: fire
+Damage class: status
+Effect(short): Changes the weather to sunny for five turns.
+------------------
+Move name: Rock-Smash
+ID: 249
+Generation: generation-ii
+Accuracy: 100
+PP: 15
+Power: 40
+Type: fighting
+Damage class: physical
+Effect(short): Has a $effect_chance% chance to lower the target's Defense by one stage.
+------------------
+Move name: Facade
+ID: 263
+Generation: generation-iii
+Accuracy: 100
+PP: 20
+Power: 70
+Type: normal
+Damage class: physical
+Effect(short): Power doubles if user is burned, paralyzed, or poisoned.
+------------------
+Move name: Nature-Power
+ID: 267
+Generation: generation-iii
+Accuracy: None
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Uses a move which depends upon the terrain.
+------------------
+Move name: Ingrain
+ID: 275
+Generation: generation-iii
+Accuracy: None
+PP: 20
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Prevents the user from leaving battle.  User regains 1/16 of its max HP every turn.
+------------------
+Move name: Knock-Off
+ID: 282
+Generation: generation-iii
+Accuracy: 100
+PP: 20
+Power: 65
+Type: dark
+Damage class: physical
+Effect(short): Target drops its held item.
+------------------
+Move name: Secret-Power
+ID: 290
+Generation: generation-iii
+Accuracy: 100
+PP: 20
+Power: 70
+Type: normal
+Damage class: physical
+Effect(short): Has a $effect_chance% chance to inflict a status effect which depends upon the terrain.
+------------------
+Move name: Grass-Whistle
+ID: 320
+Generation: generation-iii
+Accuracy: 55
+PP: 15
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Puts the target to sleep.
+------------------
+Move name: Bullet-Seed
+ID: 331
+Generation: generation-iii
+Accuracy: 100
+PP: 30
+Power: 25
+Type: grass
+Damage class: physical
+Effect(short): Hits 2-5 times in one turn.
+------------------
+Move name: Magical-Leaf
+ID: 345
+Generation: generation-iii
+Accuracy: None
+PP: 20
+Power: 60
+Type: grass
+Damage class: special
+Effect(short): Never misses.
+------------------
+Move name: Natural-Gift
+ID: 363
+Generation: generation-iv
+Accuracy: 100
+PP: 15
+Power: None
+Type: normal
+Damage class: physical
+Effect(short): Power and type depend on the held berry.
+------------------
+Move name: Worry-Seed
+ID: 388
+Generation: generation-iv
+Accuracy: 100
+PP: 10
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Changes the target's ability to Insomnia.
+------------------
+Move name: Seed-Bomb
+ID: 402
+Generation: generation-iv
+Accuracy: 100
+PP: 15
+Power: 80
+Type: grass
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Energy-Ball
+ID: 412
+Generation: generation-iv
+Accuracy: 100
+PP: 10
+Power: 90
+Type: grass
+Damage class: special
+Effect(short): Has a $effect_chance% chance to lower the target's Special Defense by one stage.
+------------------
+Move name: Leaf-Storm
+ID: 437
+Generation: generation-iv
+Accuracy: 90
+PP: 5
+Power: 130
+Type: grass
+Damage class: special
+Effect(short): Lowers the user's Special Attack by two stages after inflicting damage.
+------------------
+Move name: Power-Whip
+ID: 438
+Generation: generation-iv
+Accuracy: 85
+PP: 10
+Power: 120
+Type: grass
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Captivate
+ID: 445
+Generation: generation-iv
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's Special Attack by two stages if it's the opposite gender.
+------------------
+Move name: Grass-Knot
+ID: 447
+Generation: generation-iv
+Accuracy: 100
+PP: 20
+Power: None
+Type: grass
+Damage class: special
+Effect(short): Inflicts more damage to heavier targets, with a maximum of 120 power.
+------------------
+Move name: Venoshock
+ID: 474
+Generation: generation-v
+Accuracy: 100
+PP: 10
+Power: 65
+Type: poison
+Damage class: special
+Effect(short): Inflicts double damage if the target is Poisoned.
+------------------
+Move name: Round
+ID: 496
+Generation: generation-v
+Accuracy: 100
+PP: 15
+Power: 60
+Type: normal
+Damage class: special
+Effect(short): Has double power if it's used more than once per turn.
+------------------
+Move name: Echoed-Voice
+ID: 497
+Generation: generation-v
+Accuracy: 100
+PP: 15
+Power: 40
+Type: normal
+Damage class: special
+Effect(short): Power increases by 100% for each consecutive use by any friendly Pokémon, to a maximum of 200.
+------------------
+Move name: Grass-Pledge
+ID: 520
+Generation: generation-v
+Accuracy: 100
+PP: 10
+Power: 80
+Type: grass
+Damage class: special
+Effect(short): With Fire Pledge, damages opposing Pokémon for 1/8 their max HP every turn for four turns.
+------------------
+Move name: Work-Up
+ID: 526
+Generation: generation-v
+Accuracy: None
+PP: 30
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the user's Attack and Special Attack by one stage each.
+------------------
+Move name: Grassy-Terrain
+ID: 580
+Generation: generation-vi
+Accuracy: None
+PP: 10
+Power: None
+Type: grass
+Damage class: status
+Effect(short): For five turns, heals all Pokémon on the ground for 1/16 max HP each turn and strengthens their grass moves to 1.5× their power.
+------------------
+Move name: Confide
+ID: 590
+Generation: generation-vi
+Accuracy: None
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's Special Attack by one stage.
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+Name: Ivysaur
+Id: 2
+Height: 10
+Weight: 130
+Types:
+poison, grass
+
+>>STATS<<
+------------------
+Name: Speed
+Id: 6
+Is Battle Only: False
+------------------
+Name: Special-Defense
+Id: 5
+Is Battle Only: False
+------------------
+Name: Special-Attack
+Id: 4
+Is Battle Only: False
+------------------
+Name: Defense
+Id: 3
+Is Battle Only: False
+------------------
+Name: Attack
+Id: 2
+Is Battle Only: False
+------------------
+Name: Hp
+Id: 1
+Is Battle Only: False
+
+>>ABILITIES<<
+------------------
+Ability name: Chlorophyll
+ID: 34
+Generation: generation-iii
+Effect: This Pokémon's Speed is doubled during strong sunlight.
+
+This bonus does not count as a stat modifier.
+Effect(short): Doubles Speed during strong sunlight.
+Pokemon:
+bulbasaur, ivysaur, venusaur, oddish, gloom, vileplume, bellsprout, weepinbell, victreebel, exeggcute, exeggutor, tangela, bellossom, hoppip, skiploom, jumpluff, sunkern, sunflora, seedot, nuzleaf, shiftry, tropius, cherubi, tangrowth, leafeon, sewaddle, swadloon, leavanny, cottonee, whimsicott, petilil, lilligant, maractus, deerling, sawsbuck
+------------------
+Ability name: Overgrow
+ID: 65
+Generation: generation-iii
+Effect: When this Pokémon has 1/3 or less of its HP remaining, its grass-type moves inflict 1.5× as much regular damage.
+Effect(short): Strengthens grass moves to inflict 1.5× damage at 1/3 max HP or less.
+Pokemon:
+bulbasaur, ivysaur, venusaur, chikorita, bayleef, meganium, treecko, grovyle, sceptile, turtwig, grotle, torterra, snivy, servine, serperior, pansage, simisage, chespin, quilladin, chesnaught, rowlet, dartrix, decidueye
+
+>>MOVES<<
+------------------
+Move name: Swords-Dance
+ID: 14
+Generation: generation-i
+Accuracy: None
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the user's Attack by two stages.
+------------------
+Move name: Cut
+ID: 15
+Generation: generation-i
+Accuracy: 95
+PP: 30
+Power: 50
+Type: normal
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Bind
+ID: 20
+Generation: generation-i
+Accuracy: 85
+PP: 20
+Power: 15
+Type: normal
+Damage class: physical
+Effect(short): Prevents the target from fleeing and inflicts damage for 2-5 turns.
+------------------
+Move name: Vine-Whip
+ID: 22
+Generation: generation-i
+Accuracy: 100
+PP: 25
+Power: 45
+Type: grass
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Headbutt
+ID: 29
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 70
+Type: normal
+Damage class: physical
+Effect(short): Has a $effect_chance% chance to make the target flinch.
+------------------
+Move name: Tackle
+ID: 33
+Generation: generation-i
+Accuracy: 100
+PP: 35
+Power: 40
+Type: normal
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Body-Slam
+ID: 34
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 85
+Type: normal
+Damage class: physical
+Effect(short): Has a $effect_chance% chance to paralyze the target.
+------------------
+Move name: Take-Down
+ID: 36
+Generation: generation-i
+Accuracy: 85
+PP: 20
+Power: 90
+Type: normal
+Damage class: physical
+Effect(short): User receives 1/4 the damage it inflicts in recoil.
+------------------
+Move name: Double-Edge
+ID: 38
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 120
+Type: normal
+Damage class: physical
+Effect(short): User receives 1/3 the damage inflicted in recoil.
+------------------
+Move name: Growl
+ID: 45
+Generation: generation-i
+Accuracy: 100
+PP: 40
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's Attack by one stage.
+------------------
+Move name: Strength
+ID: 70
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 80
+Type: normal
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Mega-Drain
+ID: 72
+Generation: generation-i
+Accuracy: 100
+PP: 15
+Power: 40
+Type: grass
+Damage class: special
+Effect(short): Drains half the damage inflicted to heal the user.
+------------------
+Move name: Leech-Seed
+ID: 73
+Generation: generation-i
+Accuracy: 90
+PP: 10
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Seeds the target, stealing HP from it every turn.
+------------------
+Move name: Growth
+ID: 74
+Generation: generation-i
+Accuracy: None
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the user's Attack and Special Attack by one stage.
+------------------
+Move name: Razor-Leaf
+ID: 75
+Generation: generation-i
+Accuracy: 95
+PP: 25
+Power: 55
+Type: grass
+Damage class: physical
+Effect(short): Has an increased chance for a critical hit.
+------------------
+Move name: Solar-Beam
+ID: 76
+Generation: generation-i
+Accuracy: 100
+PP: 10
+Power: 120
+Type: grass
+Damage class: special
+Effect(short): Requires a turn to charge before attacking.
+------------------
+Move name: Poison-Powder
+ID: 77
+Generation: generation-i
+Accuracy: 75
+PP: 35
+Power: None
+Type: poison
+Damage class: status
+Effect(short): Poisons the target.
+------------------
+Move name: Sleep-Powder
+ID: 79
+Generation: generation-i
+Accuracy: 75
+PP: 15
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Puts the target to sleep.
+------------------
+Move name: String-Shot
+ID: 81
+Generation: generation-i
+Accuracy: 95
+PP: 40
+Power: None
+Type: bug
+Damage class: status
+Effect(short): Lowers the target's Speed by two stages.
+------------------
+Move name: Toxic
+ID: 92
+Generation: generation-i
+Accuracy: 90
+PP: 10
+Power: None
+Type: poison
+Damage class: status
+Effect(short): Badly poisons the target, inflicting more damage every turn.
+------------------
+Move name: Rage
+ID: 99
+Generation: generation-i
+Accuracy: 100
+PP: 20
+Power: 20
+Type: normal
+Damage class: physical
+Effect(short): If the user is hit after using this move, its Attack rises by one stage.
+------------------
+Move name: Mimic
+ID: 102
+Generation: generation-i
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Copies the target's last used move.
+------------------
+Move name: Double-Team
+ID: 104
+Generation: generation-i
+Accuracy: None
+PP: 15
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the user's evasion by one stage.
+------------------
+Move name: Defense-Curl
+ID: 111
+Generation: generation-i
+Accuracy: None
+PP: 40
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises user's Defense by one stage.
+------------------
+Move name: Light-Screen
+ID: 113
+Generation: generation-i
+Accuracy: None
+PP: 30
+Power: None
+Type: psychic
+Damage class: status
+Effect(short): Reduces damage from special attacks by 50% for five turns.
+------------------
+Move name: Reflect
+ID: 115
+Generation: generation-i
+Accuracy: None
+PP: 20
+Power: None
+Type: psychic
+Damage class: status
+Effect(short): Reduces damage from physical attacks by half.
+------------------
+Move name: Bide
+ID: 117
+Generation: generation-i
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: physical
+Effect(short): User waits for two turns, then hits back for twice the damage it took.
+------------------
+Move name: Flash
+ID: 148
+Generation: generation-i
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's accuracy by one stage.
+------------------
+Move name: Rest
+ID: 156
+Generation: generation-i
+Accuracy: None
+PP: 10
+Power: None
+Type: psychic
+Damage class: status
+Effect(short): User sleeps for two turns, completely healing itself.
+------------------
+Move name: Substitute
+ID: 164
+Generation: generation-i
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Transfers 1/4 of the user's max HP into a doll, protecting the user from further damage or status changes until it breaks.
+------------------
+Move name: Snore
+ID: 173
+Generation: generation-ii
+Accuracy: 100
+PP: 15
+Power: 50
+Type: normal
+Damage class: special
+Effect(short): Has a $effect_chance% chance to make the target flinch.  Only works if the user is sleeping.
+------------------
+Move name: Curse
+ID: 174
+Generation: generation-ii
+Accuracy: None
+PP: 10
+Power: None
+Type: ghost
+Damage class: status
+Effect(short): Ghosts pay half their max HP to hurt the target every turn.  Others decrease Speed but raise Attack and Defense.
+------------------
+Move name: Protect
+ID: 182
+Generation: generation-ii
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Prevents any moves from hitting the user this turn.
+------------------
+Move name: Sludge-Bomb
+ID: 188
+Generation: generation-ii
+Accuracy: 100
+PP: 10
+Power: 90
+Type: poison
+Damage class: special
+Effect(short): Has a $effect_chance% chance to poison the target.
+------------------
+Move name: Mud-Slap
+ID: 189
+Generation: generation-ii
+Accuracy: 100
+PP: 10
+Power: 20
+Type: ground
+Damage class: special
+Effect(short): Has a $effect_chance% chance to lower the target's accuracy by one stage.
+------------------
+Move name: Giga-Drain
+ID: 202
+Generation: generation-ii
+Accuracy: 100
+PP: 10
+Power: 75
+Type: grass
+Damage class: special
+Effect(short): Drains half the damage inflicted to heal the user.
+------------------
+Move name: Endure
+ID: 203
+Generation: generation-ii
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Prevents the user's HP from lowering below 1 this turn.
+------------------
+Move name: Swagger
+ID: 207
+Generation: generation-ii
+Accuracy: 85
+PP: 15
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the target's Attack by two stages and confuses the target.
+------------------
+Move name: Fury-Cutter
+ID: 210
+Generation: generation-ii
+Accuracy: 95
+PP: 20
+Power: 40
+Type: bug
+Damage class: physical
+Effect(short): Power doubles every turn this move is used in succession after the first, maxing out after five turns.
+------------------
+Move name: Attract
+ID: 213
+Generation: generation-ii
+Accuracy: 100
+PP: 15
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Target falls in love if it has the opposite gender, and has a 50% chance to refuse attacking the user.
+------------------
+Move name: Sleep-Talk
+ID: 214
+Generation: generation-ii
+Accuracy: None
+PP: 10
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Randomly uses one of the user's other three moves.  Only works if the user is sleeping.
+------------------
+Move name: Return
+ID: 216
+Generation: generation-ii
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: physical
+Effect(short): Power increases with happiness, up to a maximum of 102.
+------------------
+Move name: Frustration
+ID: 218
+Generation: generation-ii
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: physical
+Effect(short): Power increases as happiness decreases, up to a maximum of 102.
+------------------
+Move name: Safeguard
+ID: 219
+Generation: generation-ii
+Accuracy: None
+PP: 25
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Protects the user's field from major status ailments and confusion for five turns.
+------------------
+Move name: Sweet-Scent
+ID: 230
+Generation: generation-ii
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's evasion by one stage.
+------------------
+Move name: Synthesis
+ID: 235
+Generation: generation-ii
+Accuracy: None
+PP: 5
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Heals the user by half its max HP.  Affected by weather.
+------------------
+Move name: Hidden-Power
+ID: 237
+Generation: generation-ii
+Accuracy: 100
+PP: 15
+Power: 60
+Type: normal
+Damage class: special
+Effect(short): Power and type depend upon user's IVs.  Power can range from 30 to 70.
+------------------
+Move name: Sunny-Day
+ID: 241
+Generation: generation-ii
+Accuracy: None
+PP: 5
+Power: None
+Type: fire
+Damage class: status
+Effect(short): Changes the weather to sunny for five turns.
+------------------
+Move name: Rock-Smash
+ID: 249
+Generation: generation-ii
+Accuracy: 100
+PP: 15
+Power: 40
+Type: fighting
+Damage class: physical
+Effect(short): Has a $effect_chance% chance to lower the target's Defense by one stage.
+------------------
+Move name: Facade
+ID: 263
+Generation: generation-iii
+Accuracy: 100
+PP: 20
+Power: 70
+Type: normal
+Damage class: physical
+Effect(short): Power doubles if user is burned, paralyzed, or poisoned.
+------------------
+Move name: Nature-Power
+ID: 267
+Generation: generation-iii
+Accuracy: None
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Uses a move which depends upon the terrain.
+------------------
+Move name: Knock-Off
+ID: 282
+Generation: generation-iii
+Accuracy: 100
+PP: 20
+Power: 65
+Type: dark
+Damage class: physical
+Effect(short): Target drops its held item.
+------------------
+Move name: Secret-Power
+ID: 290
+Generation: generation-iii
+Accuracy: 100
+PP: 20
+Power: 70
+Type: normal
+Damage class: physical
+Effect(short): Has a $effect_chance% chance to inflict a status effect which depends upon the terrain.
+------------------
+Move name: Bullet-Seed
+ID: 331
+Generation: generation-iii
+Accuracy: 100
+PP: 30
+Power: 25
+Type: grass
+Damage class: physical
+Effect(short): Hits 2-5 times in one turn.
+------------------
+Move name: Natural-Gift
+ID: 363
+Generation: generation-iv
+Accuracy: 100
+PP: 15
+Power: None
+Type: normal
+Damage class: physical
+Effect(short): Power and type depend on the held berry.
+------------------
+Move name: Worry-Seed
+ID: 388
+Generation: generation-iv
+Accuracy: 100
+PP: 10
+Power: None
+Type: grass
+Damage class: status
+Effect(short): Changes the target's ability to Insomnia.
+------------------
+Move name: Seed-Bomb
+ID: 402
+Generation: generation-iv
+Accuracy: 100
+PP: 15
+Power: 80
+Type: grass
+Damage class: physical
+Effect(short): Inflicts regular damage with no additional effect.
+------------------
+Move name: Energy-Ball
+ID: 412
+Generation: generation-iv
+Accuracy: 100
+PP: 10
+Power: 90
+Type: grass
+Damage class: special
+Effect(short): Has a $effect_chance% chance to lower the target's Special Defense by one stage.
+------------------
+Move name: Captivate
+ID: 445
+Generation: generation-iv
+Accuracy: 100
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's Special Attack by two stages if it's the opposite gender.
+------------------
+Move name: Grass-Knot
+ID: 447
+Generation: generation-iv
+Accuracy: 100
+PP: 20
+Power: None
+Type: grass
+Damage class: special
+Effect(short): Inflicts more damage to heavier targets, with a maximum of 120 power.
+------------------
+Move name: Venoshock
+ID: 474
+Generation: generation-v
+Accuracy: 100
+PP: 10
+Power: 65
+Type: poison
+Damage class: special
+Effect(short): Inflicts double damage if the target is Poisoned.
+------------------
+Move name: Round
+ID: 496
+Generation: generation-v
+Accuracy: 100
+PP: 15
+Power: 60
+Type: normal
+Damage class: special
+Effect(short): Has double power if it's used more than once per turn.
+------------------
+Move name: Echoed-Voice
+ID: 497
+Generation: generation-v
+Accuracy: 100
+PP: 15
+Power: 40
+Type: normal
+Damage class: special
+Effect(short): Power increases by 100% for each consecutive use by any friendly Pokémon, to a maximum of 200.
+------------------
+Move name: Grass-Pledge
+ID: 520
+Generation: generation-v
+Accuracy: 100
+PP: 10
+Power: 80
+Type: grass
+Damage class: special
+Effect(short): With Fire Pledge, damages opposing Pokémon for 1/8 their max HP every turn for four turns.
+------------------
+Move name: Work-Up
+ID: 526
+Generation: generation-v
+Accuracy: None
+PP: 30
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Raises the user's Attack and Special Attack by one stage each.
+------------------
+Move name: Confide
+ID: 590
+Generation: generation-vi
+Accuracy: None
+PP: 20
+Power: None
+Type: normal
+Damage class: status
+Effect(short): Lowers the target's Special Attack by one stage.
+
